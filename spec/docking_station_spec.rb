@@ -19,8 +19,9 @@ RSpec.describe DockingStation do
       end
 
       it 'raises an error when someone tries to dock to a station with 20 bikes' do
+         bike = Bike.new
          20.times { subject.docked Bike.new }
-         expect { subject.docked Bike.new }.to raise_error 'Docking station at capacity'
+         expect { subject.docked(bike) }.to raise_error 'Docking station at capacity'
       end
    end
 end
